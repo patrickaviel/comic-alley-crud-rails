@@ -1,0 +1,14 @@
+ <div class="row mt-5">
+     <div class="col-md-7">
+         <p class="lead"><%= @toy.brand %></p>
+         <h1><%= @toy.toy_name %></h1>
+         <p class="lead">₱<strong><%= @toy.price %></strong></p>
+         <p class="lead">Stocks Left: <strong><%= @toy.quantity %></strong></p>
+         <p class="lead"><%= @toy.description %></p>
+
+     </div>
+     <div class="col-6 col-md-5">
+         <img src="<%=@toy.image_url %>" alt="" style="width:90%">
+     </div>
+ </div>
+ <%= link_to 'Back to Collections', collections_path, class:"btn btn-danger btn-sm" %>

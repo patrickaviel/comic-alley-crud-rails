@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h1 class="display-6">Collections</h1>
+        <div>
+            <%= link_to ('<i class="fas fa-plus-square"></i> Add Item').html_safe, new_path, class: "btn btn-primary btn-sm align-middle"%>
+        </div>
+
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @toys.each do |toy| %>
+            <tr>
+                <th scope="row"><%= toy.id %></th>
+                <td><img src="<%= toy.image_url %>" class="img-fluid img-thumbnail" alt="zoids" style="height:50px"></td>
+                <td><%= toy.brand %></td>
+                <td><%= toy.toy_name %></td>
+                <td>P <%= toy.price %></td>
+                <td><%= toy.quantity %></td>
+                <td><%= link_to 'Show', toy_path(toy) , class:"btn btn-sm btn-primary"%> | <%= link_to 'Edit', edit_toy_path(toy), class:"btn btn-sm btn-success"%> | <%= link_to 'Delete', toy_path(toy), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %></td>
+            </tr>
+            <%end %>
+        </tbody>
+    </table>
+</div>
